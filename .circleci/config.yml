@@ -41,5 +41,17 @@ jobs:
       # run tests!
       - run: gradle test
 
+      # Save test results as described in https://circleci.com/docs/2.0/collect-test-data/#gradle-junit-test-results
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/junit/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
+
 
 
