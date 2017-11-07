@@ -34,5 +34,7 @@ repositories {
 
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:$junit_version")
+    // To avoid compiler warnings about @API annotations in JUnit code.
+    testCompileOnly('org.apiguardian:apiguardian-api:1.0.0')
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit_version")
 }
