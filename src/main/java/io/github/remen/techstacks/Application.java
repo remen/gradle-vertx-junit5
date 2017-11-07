@@ -10,7 +10,7 @@ public class Application {
     private HttpServer server = vertx.createHttpServer();
 
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        new Application().start();
     }
 
     public void start() {
